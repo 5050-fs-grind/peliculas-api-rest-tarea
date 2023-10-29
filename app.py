@@ -40,5 +40,5 @@ def eliminar_peliculas(id):
     return controlador.eliminar(id)
 
 @app.route("/peliculas/healthcheck")
-def reportar_peliculas():
+def healthcheck():
     return HTTPStatus.OK
