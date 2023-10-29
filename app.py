@@ -7,6 +7,7 @@ from http import HTTPStatus
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://testings_user:mFtIPHnv2xr1FmBncd5NdE1SVt7Gh4oY@dpg-ckuvvnmb0mos73dsrvdg-a.oregon-postgres.render.com/testings'
+app.config['PROPAGATE_EXCEPTIONS'] = True
 
 db.init_app(app)
 migrate = Migrate(app, db)
@@ -41,4 +42,6 @@ def eliminar_peliculas(id):
 
 @app.route("/peliculas/healthcheck")
 def healthcheck():
-    return HTTPStatus.OK
+    return {
+        "message": "Servicio REST en correcto funcionamiento"
+    },HTTPStatus.OK
