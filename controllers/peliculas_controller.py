@@ -54,7 +54,7 @@ class PeliculasController:
             registro = PeliculasModel.query.get(id)
             if registro:
                 registro.id = data["id"]
-                registro.nombre = data["id"]
+                registro.nombre = data["nombre"]
                 registro.precio = data["precio"]
                 registro.stock = data["stock"]
                 registro.foto = data["foto"]
