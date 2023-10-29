@@ -2,6 +2,7 @@ from flask import Flask, request
 from db import db
 from flask_migrate import Migrate
 from controllers.peliculas_controller import PeliculasController
+from http import HTTPStatus
 
 
 app = Flask(__name__)
@@ -37,3 +38,7 @@ def actualizar_peliculas(id):
 def eliminar_peliculas(id):
     controlador = PeliculasController()
     return controlador.eliminar(id)
+
+@app.route("/peliculas/healthcheck")
+def reportar_peliculas():
+    return HTTPStatus.OK
